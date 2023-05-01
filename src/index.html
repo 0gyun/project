@@ -16,19 +16,19 @@
     <!-- body -->
     <section style="display: flex;">
     <!-- side menu -->
-    <nav id="menuContainer" style="display: flex; flex-direction:column; justify-content:center;">
-        <form>
-            <input type="text" id="id" placeholder="ID"/>
+    <nav id="menuContainer" style="display: flex; flex-direction:column; justify-content:center; width:20%;">
+        <form style="display:flex; flex-direction:column; justify-content:center; width:90%">
+            <input type="text" id="email" placeholder="Email"/>
             <br/>
             <input type="password" id="pwd" placeholder="Password"/>
             <br/>
             <input type="button" value="Log in" id="loginBtn"/>
             <br/>
-            <input type="button" value="회원가입" id="register"/>
+            <input type="button" value="회원가입" id="register" class="register"/>
         </form>
     </nav>
     <!-- map -->
-    <div style="display:flex; flex-direction:column; margin-top:auto; margin-bottom:auto; justify-content:center; align-items:center; width:100%; height: 100%; display:flex;">
+    <div class="map">
         <img id="korea" src="../image/korea.png" style="max-height:100%;" alt="한국 지도">
     </div>
     </section>

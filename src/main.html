@@ -17,14 +17,39 @@
     <!-- body -->
     <section style="display: flex;">
         <!-- side menu -->
-        <nav id="menuContainer" style="display: flex;">
-            <span style="justify-content: center; padding-top:100%;"> 폴더 </span>
+        <nav id="menuContainer" style="display:flex; flex-direction:column; width:20%">
+            <div style="width:90%; margin-top:40px;">
+                <div style="display: flex; width: 100%; margin-bottom:20px; align-items:center; justify-content:space-between">
+                    <span style="margin:auto; font-size:1.5vw; text-decoration:underline;"> 폴더 </span>
+                    <button id="addFolderBtn">+</button>
+                </div>
+                <label id="folderList" style="display: flex; flex-direction:column; justify-content:center;">
+                    <br/>
+                    <div>
+                        <input type="radio" name="폴더" value="가족" style="display: inline;" > 가족
+                    </div>
+                    <br/>
+                    <div>
+                        <input type="radio" name="폴더" value="데이트" style="display: inline;"> 데이트
+                    </div>
+                </label>
+            </div>
         </nav>
         <!-- map -->
-        <div style="height: 100%; display:flex;">
-            <img id="korea" src="../image/korea.png" alt="한국 지도">
+        <div class="map">
+            <img id="korea" src="../image/korea.png" style="max-height:100%;" alt="한국 지도">
         </div>
     </section>
+
+    <div id="addFolderPage" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>모달 다이얼로그 내용</p>
+            <input type="text" id="newFolder" style="background-color: lightgrey;" placeholder="새로운 폴더">
+            <button id="addNewFolder" >폴더 추가</button>
+        </div>
+    </div>
     <script src="./js/index.js"></script>
+    <script src="./js/mainPage.js"></script>
 </body>
 </html>
