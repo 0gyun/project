@@ -4,33 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>그때, 거기</title>
+    <title>회원가입</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <header id="headerBar">
+    <!-- header -->
+    <header class="headerBar">
         <h1 id="title"><pre>그때, 거기</pre></h1>
-        <button id="logout">Log out</button>
     </header>
     
+    <!-- body -->
     <section style="display: flex;">
-    <nav id="menuContainer">
-        <ul>
-            <li>
-                <input type="text" id="id" placeholder="ID">
-            </li>
+    <!-- side menu -->
+    <nav id="menuContainer" style="display: flex; flex-direction:column; justify-content:center;">
+        <form>
+            <input type="text" id="id" placeholder="ID"/>
             <br/>
-            <li>
-                <input type="text" id="pwd" placeholder="Password">
-            </li>
+            <input type="password" id="pwd" placeholder="Password"/>
             <br/>
-            <li>
-                <button id="loginBtn">Log in</button>
-            </li>
-        </ul>
+            <input type="button" value="회원가입" id="registerBtn"/>
+        </form>
     </nav>
+    <!-- map -->
     <div style="width: 100%; display:flex;">
-        <img id="korea" src="./image/korea.png" alt="한국 지도">
+        <img id="korea" src="../image/korea.png" alt="한국 지도">
     </div>
     </section>
     <script src="./js/index.js"></script>
