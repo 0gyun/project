@@ -14,7 +14,8 @@ if(addFolderBtn){
 }
 
 korea.addEventListener('click', ()=>{
-    modal.style.display = "block";
+    const name = document.querySelector('input[name="폴더"]:checked').value;
+    window.location.href=`http://localhost:52271/folder/?folder=${name}`;
 })
 
 // // 모달 열기 버튼을 클릭하면 모달을 엽니다.

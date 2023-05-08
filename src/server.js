@@ -1,5 +1,6 @@
 const express = require('express');
 const fs = require('fs');
+const alert = require('alert-node');
 const app = express();
 
 app.use(express.static(__dirname + "/"));
@@ -15,7 +16,7 @@ fs.readFile('../data/users.json', (err,data)=>{
 let user;
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile(__dirname + "/html/index.html");
 });
 
 app.get("/image/korea.png", (req, res) => {
@@ -23,34 +24,37 @@ app.get("/image/korea.png", (req, res) => {
 });
 
 app.get("/main", (req, res) => {
-    res.sendFile(__dirname + "/main.html");
+    res.sendFile(__dirname + "/html/main.html");
 });
 
-app.get("/signIn", (req, res)=>{
-    res.sendFile(__dirname+"/register.html");
+app.get("/signUp", (req, res)=>{
+    res.sendFile(__dirname+"/html/register.html");
 })
 
 app.get("/login",(req, res)=>{
     const id = req.query.id;
     const pwd = req.query.pwd;
-    
-    if(users[id] == pwd){
+    if(users[id] == pwd && id.length != 0){
         user = id;
         res.redirect("http://localhost:52271/main");
     }
     else{
-        res.redirect("http://localhost:52271/");
+        alert('아이디 또는 비밀번호가 잘못되었습니다. 다시 입력하세요.');
+        // res.redirect("http://localhost:52271/");
     }
+})
+
+app.get("/folder", (req, res)=>{
+    const name = req.query.name;
+
+    res.sendFile(__dirname + "/html/album.html");
 })
 
 app.get("/register",(req, res)=>{
     const id = req.query.id;
     const pwd = req.query.pwd;
-    
-    console.log(id);
-    console.log(pwd);
-    console.log(users);
-    if(!users[id]){
+
+    if(!users[id] && id.length != 0 && pwd.length != 0){
         // 유저 정보를 저장하는 것
         users[id] = pwd;
         let newData = JSON.stringify(users);
@@ -59,10 +63,18 @@ app.get("/register",(req, res)=>{
         res.redirect("http://localhost:52271/");
     }
     else{
-        res.redirect("http://localhost:52271/register.html");
+        res.redirect("http://localhost:52271/signUp");
     }
 })
 
 app.listen(52271, () => {
     console.log("Server started on http://localhost:52271");
+});
+
+
+const multer = require('multer');
+const upload = multer({ dest: '../image/' });
+
+app.post('/upload-image', upload.single('image'), (req, res) => {
+  res.send('Image uploaded successfully!');
 });

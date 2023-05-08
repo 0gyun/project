@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원가입</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <title>그때, 거기</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <!-- header -->
@@ -16,20 +16,22 @@
     <!-- body -->
     <section style="display: flex;">
     <!-- side menu -->
-    <nav id="menuContainer" style="display: flex; flex-direction:column; justify-content:center;">
-        <form>
+    <nav id="menuContainer" style="display: flex; flex-direction:column; justify-content:center; width:20%;">
+        <form style="display:flex; flex-direction:column; justify-content:center; width:90%">
             <input type="text" id="email" placeholder="Email"/>
             <br/>
             <input type="password" id="pwd" placeholder="Password"/>
             <br/>
-            <input type="button" value="회원가입" id="registerBtn"/>
+            <input type="button" value="Log in" id="loginBtn"/>
+            <br/>
+            <input type="button" value="회원가입" id="register" class="register"/>
         </form>
     </nav>
     <!-- map -->
-    <div style="width: 100%; display:flex;">
-        <img id="korea" src="../image/korea.png" alt="한국 지도">
+    <div class="map">
+        <img id="korea" src="../../image/korea.png" style="max-height:100%;" alt="한국 지도">
     </div>
     </section>
-    <script src="./js/index.js"></script>
+    <script src="../js/index.js"></script>
 </body>
 </html>

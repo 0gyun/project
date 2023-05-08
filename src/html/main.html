@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>그때, 거기</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <!-- header -->
@@ -21,7 +21,7 @@
             <div style="width:90%; margin-top:40px;">
                 <div style="display: flex; width: 100%; margin-bottom:20px; align-items:center; justify-content:space-between">
                     <span style="margin:auto; font-size:1.5vw; text-decoration:underline;"> 폴더 </span>
-                    <button id="addFolderBtn">+</button>
+                    <button id="addFolderBtn" class="navButton">+</button>
                 </div>
                 <label id="folderList" style="display: flex; flex-direction:column; justify-content:center;">
                     <br/>
@@ -37,19 +37,22 @@
         </nav>
         <!-- map -->
         <div class="map">
-            <img id="korea" src="../image/korea.png" style="max-height:100%;" alt="한국 지도">
+            <img id="korea" src="../../image/korea.png" style="max-height:100%;" alt="한국 지도">
         </div>
     </section>
 
     <div id="addFolderPage" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p>모달 다이얼로그 내용</p>
-            <input type="text" id="newFolder" style="background-color: lightgrey;" placeholder="새로운 폴더">
-            <button id="addNewFolder" >폴더 추가</button>
+            <p>새 폴더</p>
+            <div style="display: flex; flex-direction:column; align-items:center; margin:auto; width:50%;">
+                <input type="text" id="newFolder" style="background-color: lightgrey; margin-top:10%; height:30px; width:100%;" placeholder="새로운 폴더">
+                <br/>
+                <button id="addNewFolder"  style="width:100%;">폴더 추가</button>
+            </div>
         </div>
     </div>
-    <script src="./js/index.js"></script>
-    <script src="./js/mainPage.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/mainPage.js"></script>
 </body>
 </html>

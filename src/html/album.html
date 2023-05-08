@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그때, 거기</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- header -->
+    <header class="headerBar">
+        <h1 id="title"><pre>그때, 거기</pre></h1>
+        <button id="logout">Log out</button>
+    </header>
+
+    <!-- body -->
+    <section>
+        <!-- side menu -->
+        <nav id="menuContainer" style="display:flex; flex-direction:column; width:20%">
+            <div style="width:90%; margin-top:40px;">
+                <div style="display: flex; width: 100%; margin-bottom:20px; align-items:center; justify-content:space-between">
+                    <button id="backBtn" class="navButton">&lt;</button>
+                    <span style="margin:auto; font-size:1.5vw; text-decoration:underline;"> 지역 </span>
+                </div>
+                <label id="folderList" style="display: flex; flex-direction:column; justify-content:center;">
+                    <br/>
+                    <form>
+                        <select name="regions" id="region" style="width:100%; margin-bottom:10%;" required>
+                            <option value="서울">서울</option>
+                            <option value="인천">인천</option>
+                            <option value="경기">경기</option>
+                            <option value="강원">강원</option>
+                            <option value="충남">충남</option>
+                            <option value="충북">충북</option>
+                            <option value="대전">대전</option>
+                            <option value="전북">전북</option>
+                            <option value="전남">전남</option>
+                            <option value="광주">광주</option>
+                            <option value="경북">경북</option>
+                            <option value="경남">경남</option>
+                            <option value="울산">울산</option>
+                            <option value="부산">부산</option>
+                            <option value="제주">제주</option>
+                        </select>
+                        <select name="places" id="place" aria-placeholder="장소" style="width:100%; margin-bottom:10%;">
+                            <option value="" disabled selected>장소</option>
+                        </select>
+                    </form>
+
+                    <div id="images">
+                        <img src="../../image/korea.png" class="image" alt="사진">
+                        <img src="../../image/korea.png" class="image" alt="사진">
+                        <img src="../../image/korea.png" class="image" alt="사진">
+                        <img src="../../image/korea.png" class="image" alt="사진">
+                        <img src="../../image/korea.png" class="image" alt="사진">
+                        <img src="../../image/korea.png" class="image" alt="사진">
+                        <img src="../../image/korea.png" class="image" alt="사진">
+                        <img src="../../image/korea.png" class="image" alt="사진">
+                        <img src="../../image/korea.png" class="image" alt="사진">
+                        <img src="../../image/korea.png" class="image" alt="사진">
+                        <img src="../../image/korea.png" class="image" alt="사진">
+                        <img src="../../image/korea.png" class="image" alt="사진">
+                        <img src="../../image/korea.png" class="image" alt="사진">
+                    </div>
+                </label>
+                <br/>
+                <input type="button" value="➕" id="addPhotoBtn"/>
+            </div>
+        </nav>
+        <!-- map -->
+        <div class="map">
+            <img id="korea" src="../../image/korea.png" style="max-height:100%;" alt="한국 지도">
+        </div>
+    </section>
+
+    <div id="addFolderPage" class="modal">
+        <div class="modal-content">
+            <div style="margin-bottom:20px;">
+                <h3 style="display: inline;">새로운 사진 추가</h3>
+                <span class="close">&times;</span>
+            </div>
+            <input type="text" id="newPlace" style="background-color: lightgrey; " placeholder="장소">
+            <input type="file" id="newPhoto" name="file" accept="image/*">
+            <button id="savePhoto" onclick="uploadImage()">Save</button>
+        </div>
+    </div>
+    <script src="../js/index.js"></script>
+    <script src="../js/album.js"></script>
+</body>
+</html>
