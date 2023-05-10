@@ -1,3 +1,37 @@
+// const { user } = require('../server.js');
+import {user} from '../server.js';
+const fs = require('fs');
+
+// 이미지 보여주기
+function showImage(imgs) {
+    // Get the expanded image
+    var expandImg = document.getElementById("korea");
+    // Use the same src in the expanded image as the image being clicked on from the grid
+    expandImg.src = imgs.src;
+    // Show the container element (hidden with CSS)
+    expandImg.parentElement.style.display = "block";
+}
+
+// 지역 설정
+let selectOption = document.getElementById("region");
+const images = document.getElementById('images');
+selectOption.addEventListener('change',()=>{
+    const where = document.getElementById('selectedRegion');
+    where.innerText = selectOption.options[selectOption.selectedIndex].value;
+    images.innerHTML = '';
+    showList(where);
+});
+
+function showList(place){
+    const jsonFile = fs.readFileSync('../../data/photos.json', 'utf-8');
+    const jsonData = JSON.parse(jsonFile);
+    for (let index = 0; index < jsonData.user.place.length; index++) {
+        images.innerHTML += `<img src="../../image/${jsonData.user.place[index]}" class="image" alt="사진" onclick="showImage(this);">`;
+    }
+};
+
+
+
 let addPhotoBtn = document.getElementById('addPhotoBtn');
 // 모달 요소 가져오기
 let modal = document.getElementById("addFolderPage");
@@ -45,54 +79,14 @@ window.onclick = function(event) {
   }
 }
 
-// addNewPhoto.onclick = function(){
-//     const newFolder = document.getElementById('newFolder').value;
-//     console.log(newFolder);
-//     if(newFolder){
-//         document.getElementById('folderList').innerHTML = document.getElementById('folderList').innerHTML + `<br/>\n<div>\n<input type="radio" name="폴더" value="${newFolder}" style="display: inline;" > ${newFolder} <div/>`;
-//         document.getElementById('newFolder').value = '';
-//         modal.style.display = "none";
-//     }
+// const uploadForm = document.getElementById("uploadForm");
+// if(uploadForm){
+//     uploadForm.addEventListener("submit", (event) => {
+//         event.preventDefault();
+//         const formData = new FormData(uploadForm);
+//         fetch("/data", {
+//             method: "POST",
+//             body: formData,
+//         });
+//     });
 // }
-
-newPhoto.addEventListener('change', ()=>{
-    const file = newPhoto.files[0];
-
-    // FileReader 객체를 생성합니다.
-    const reader = new FileReader();
-
-    // 파일을 읽기 시작합니다.
-    reader.readAsDataURL(file);
-
-    // 파일을 다 읽은 후에 실행됩니다.
-    reader.onload = () => {
-      // 파일이 이미지 파일인 경우에는 이미지를 미리보기합니다.
-      if (file.type.startsWith('image/')) {
-        const img = document.createElement('img');
-        img.src = reader.result;
-        // console.log(img.src);
-        // preview.innerHTML = '';
-        // newPhoto.files[0].name = '';
-        // preview.appendChild(img);
-      }
-    };
-})
-
-function uploadImage() {
-    const input = document.querySelector('input[type="file"]');
-    const file = input.files[0];
-    const formData = new FormData();
-    // formData['image'] = file;
-    formData.append('image',file);
-  
-    console.log(input);
-    console.log(file);
-    console.log(formData);
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', '/upload-image');
-    xhr.send(formData);
-
-    modal.style.display = "none";
-    preview.innerHTML = '';
-    newPhoto.files[0].name = '';
-}

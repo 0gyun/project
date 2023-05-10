@@ -43,25 +43,27 @@
                             <option value="부산">부산</option>
                             <option value="제주">제주</option>
                         </select>
-                        <select name="places" id="place" aria-placeholder="장소" style="width:100%; margin-bottom:10%;">
+                        <!-- <select name="places" id="place" aria-placeholder="장소" style="width:100%; margin-bottom:10%;">
                             <option value="" disabled selected>장소</option>
-                        </select>
+                        </select> -->
                     </form>
 
+                    <h3 id="selectedRegion">서울</h3>
+
                     <div id="images">
-                        <img src="../../image/korea.png" class="image" alt="사진">
-                        <img src="../../image/korea.png" class="image" alt="사진">
-                        <img src="../../image/korea.png" class="image" alt="사진">
-                        <img src="../../image/korea.png" class="image" alt="사진">
-                        <img src="../../image/korea.png" class="image" alt="사진">
-                        <img src="../../image/korea.png" class="image" alt="사진">
-                        <img src="../../image/korea.png" class="image" alt="사진">
-                        <img src="../../image/korea.png" class="image" alt="사진">
-                        <img src="../../image/korea.png" class="image" alt="사진">
-                        <img src="../../image/korea.png" class="image" alt="사진">
-                        <img src="../../image/korea.png" class="image" alt="사진">
-                        <img src="../../image/korea.png" class="image" alt="사진">
-                        <img src="../../image/korea.png" class="image" alt="사진">
+                        <img src="../../image/korea.png" class="image" alt="사진" onclick="showImage(this);">
+                        <img src="../../image/sky.png" class="image" alt="사진" onclick="showImage(this);">
+                        <img src="../../image/night.png" class="image" alt="사진" onclick="showImage(this);">
+                        <img src="../../image/korea.png" class="image" alt="사진" onclick="showImage(this);">
+                        <img src="../../image/night.png" class="image" alt="사진" onclick="showImage(this);">
+                        <img src="../../image/road.png" class="image" alt="사진" onclick="showImage(this);">
+                        <img src="../../image/korea.png" class="image" alt="사진" onclick="showImage(this);">
+                        <img src="../../image/korea.png" class="image" alt="사진" onclick="showImage(this);">
+                        <img src="../../image/sky.png" class="image" alt="사진" onclick="showImage(this);">
+                        <img src="../../image/sky.png" class="image" alt="사진" onclick="showImage(this);">
+                        <img src="../../image/korea.png" class="image" alt="사진" onclick="showImage(this);">
+                        <img src="../../image/night.png" class="image" alt="사진" onclick="showImage(this);">
+                        <img src="../../image/road.png" class="image" alt="사진" onclick="showImage(this);">
                     </div>
                 </label>
                 <br/>
@@ -70,7 +72,7 @@
         </nav>
         <!-- map -->
         <div class="map">
-            <img id="korea" src="../../image/korea.png" style="max-height:100%;" alt="한국 지도">
+            <img id="korea" src="../../image/korea.png" style="height:700px; padding-top:20px; background-size:contain" alt="한국 지도">
         </div>
     </section>
 
@@ -80,10 +82,13 @@
                 <h3 style="display: inline;">새로운 사진 추가</h3>
                 <span class="close">&times;</span>
             </div>
-            <input type="text" id="newPlace" style="background-color: lightgrey; " placeholder="장소">
-            <input type="file" id="newPhoto" name="file" accept="image/*">
-            <button id="savePhoto" onclick="uploadImage()">Save</button>
+            <form id="uploadFoam" enctype="multipart/form-data">
+                <input type="text" id="newPlace" style="background-color: lightgrey; " placeholder="장소">
+                <input type="file" id="newPhoto" name="image" accept="image/*">
+                <button type="submit">업로드</button>
+            </form>
         </div>
+        <button id="savePhoto" onclick="uploadImage()">Save</button>
     </div>
     <script src="../js/index.js"></script>
     <script src="../js/album.js"></script>

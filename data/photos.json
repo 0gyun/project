@@ -1,6 +1,9 @@
 {
-    "_comment": "fields (user, folder, filename, (date))",
+    "_comment": "fields (user : {folder : {place : {filename, (date)}}})",
     "admin":{
-        
+        "가족" : {
+            "서울" : ["korea.png", "night.png", "sky.png", "korea.png", "night.png", "sky.png", "korea.png", "night.png", "sky.png"],
+            "경기" : ["korea.png", "night.png", "sky.png", "korea.png", "night.png", "sky.png", "korea.png", "night.png", "sky.png", "korea.png", "night.png", "sky.png"]
+        }
     }
 }
